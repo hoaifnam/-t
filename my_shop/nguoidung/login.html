@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập - Phone Store</title>
+    <link rel="stylesheet" href="stylee.css">
+</head>
+<body>
+    <div class="login-container">
+        <!-- Nút quay lại -->
+        <a href="index.php" class="back-btn">&#8592;</a>
+        <h2>Đăng nhập</h2>
+        <form action="login_process.php" method="POST">
+            <div class="input-group">
+                <label for="username">Tên đăng nhập:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Mật khẩu:</label>
+                <input type="password" id="password" name="password" required>
+                <!-- Nút mắt để ẩn/hiện mật khẩu -->
+                <span id="toggle-password" class="eye-icon">&#128065;</span>
+            </div>
+            <button type="submit">Đăng nhập</button>
+            <div class="forgot-password">
+                <a href="forgot_password.php">Quên mật khẩu?</a>
+            </div>
+            
+        </form>
+        
+
+    </div>
+
+    <script>
+        // Lấy phần tử input mật khẩu và biểu tượng mắt
+        const passwordField = document.getElementById('password');
+        const togglePassword = document.getElementById('toggle-password');
+
+        // Thêm sự kiện click vào biểu tượng mắt
+        togglePassword.addEventListener('click', function() {
+            // Kiểm tra trạng thái hiện tại của input mật khẩu
+            const type = passwordField.type === 'password' ? 'text' : 'password';
+            passwordField.type = type;
+            
+            // Thay đổi biểu tượng mắt khi ẩn/hiện mật khẩu
+            togglePassword.innerHTML = type === 'password' ? '&#128065;' : '&#128064;';
+        });
+    </script>
+</body>
+</html>
